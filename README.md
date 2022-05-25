@@ -34,3 +34,7 @@
    - Integração
    - Widgets
  - Usar Dependency Injection
+
+ ## Comandos
+  - Gerar arquivos .g
+    - "flutter pub run build_runner watch"
