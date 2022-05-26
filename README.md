@@ -35,6 +35,25 @@
    - Widgets
  - Usar Dependency Injection
 
- ## Comandos
-  - Gerar arquivos .g
-    - "flutter pub run build_runner watch"
+## Comandos usados
+```bash
+# Gerar arquivos .g
+$ flutter pub run build_runner watch
+$ flutter pub run build_runner build
+
+# Configurar coverage
+# Instalar o package full_coverage global
+$ dart pub global activate full_coverage
+
+# Executar quando adicionar novos arquivos
+# Responsável por criar/atualizar o arquivo: full_coverage_test.dart que dá um coverage assertivo
+$ dart pub global run full_coverage -i *_widget.dart,*_screen.dart,*.g.dart
+
+# Executar os testes
+$ flutter test --coverage
+
+# Instalar as extensões:
+ - Coverage Gutters (ryanluker)
+ - Flutter Coverage (Flutterando)
+```
+---
