@@ -9,14 +9,16 @@ class SpecieRepository implements ISpecieRepository {
   SpecieRepository(this.firebaseFirestore);
 
   @override
-  Future<void> create(SpecieModel specie) {
-    // TODO: implement create
-    throw UnimplementedError();
+  Future<void> create(SpecieModel specie) async {
+    await firebaseFirestore.collection(collection).add(specie.toJson());
   }
 
   @override
-  Future<List<SpecieModel>> getAll() {
-    firebaseFirestore.collection(collection);
-    throw UnimplementedError();
+  Future<List<SpecieModel>> getAll() async {
+    final result = await firebaseFirestore.collection(collection).get();
+
+    return result.docs
+        .map((specieMap) => SpecieModel.fromMap(specieMap))
+        .toList();
   }
 }
