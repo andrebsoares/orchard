@@ -9,9 +9,8 @@ class TreeRepository implements ITreeRepository {
   TreeRepository(this.firebaseFirestore);
 
   @override
-  Future<void> create(TreeModel tree) {
-    // TODO: implement create
-    throw UnimplementedError();
+  Future<void> create(TreeModel tree) async {
+    await firebaseFirestore.collection(collection).add(tree.toJson());
   }
 
   @override

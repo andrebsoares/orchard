@@ -25,4 +25,11 @@ void main() {
     expect(result, isA <List<TreeModel>>());
     expect(result, [treeModel]);
   });
+
+  test('tree repository create', () async {
+    treeRepository.create(treeModel);
+    final result = await firestore.collection(treeCollection).get();
+
+    expect(result.docs.length, 1);
+  });
 }
