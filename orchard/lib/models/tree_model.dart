@@ -5,15 +5,15 @@ import 'package:orchard/models/tree_group_model.dart';
 
 part 'tree_model.g.dart';
 
-@JsonSerializable()
-class TreeModel extends Equatable{
+@JsonSerializable(explicitToJson: true)
+class TreeModel extends Equatable {
   final String id;
   final String description;
   final DateTime plantedIn;
   final SpecieModel specie;
   final TreeGroupModel treeGroup;
 
-  TreeModel(
+  const TreeModel(
       {required this.id,
       required this.description,
       required this.plantedIn,
@@ -33,6 +33,5 @@ class TreeModel extends Equatable{
         treeGroup = TreeGroupModel.fromMap(map['treeGroup']);
 
   @override
-
   List<Object?> get props => [id, description, plantedIn, specie, treeGroup];
 }

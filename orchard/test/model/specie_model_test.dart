@@ -14,7 +14,7 @@ void main() {
   });
 
   test("Test convertion of SpecieModel to Json", () {
-    SpecieModel specie = SpecieModel(id: "0101", description: "teste 1");
+    SpecieModel specie = const SpecieModel(id: "0101", description: "teste 1");
 
     String resultSpecieJson = jsonEncode(specie.toJson());
 

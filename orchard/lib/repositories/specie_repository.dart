@@ -14,11 +14,14 @@ class SpecieRepository implements ISpecieRepository {
   }
 
   @override
-  Future<List<SpecieModel>> getAll() async {
-    final result = await firebaseFirestore.collection(collection).get();
+  Stream<List<SpecieModel>> getAll() {
+    return firebaseFirestore.collection(collection).snapshots().map(
+        (documentsSnapshot) => documentsSnapshot.docs
+            .map((doc) => SpecieModel.fromMap(doc.data()))
+            .toList());
 
-    return result.docs
-        .map((specieMap) => SpecieModel.fromMap(specieMap))
-        .toList();
+    // return result
+    //     .map((specieMap) => SpecieModel.fromMap(specieMap))
+    //     .toList();
   }
 }

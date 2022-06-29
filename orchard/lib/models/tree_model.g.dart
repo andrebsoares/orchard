@@ -19,6 +19,6 @@ Map<String, dynamic> _$TreeModelToJson(TreeModel instance) => <String, dynamic>{
       'id': instance.id,
       'description': instance.description,
       'plantedIn': instance.plantedIn.toIso8601String(),
-      'specie': instance.specie,
-      'treeGroup': instance.treeGroup,
+      'specie': instance.specie.toJson(),
+      'treeGroup': instance.treeGroup.toJson(),
     };
