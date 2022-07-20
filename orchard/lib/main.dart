@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:orchard/models/specie_model.dart';
+import 'package:orchard/app_widget.dart';
 
 void main() {
-  runApp(Container());
+  runApp(const AppWidget());
 
-  final especies = [
-    {"id": '0101', "description": "teste 1"},
-    {"id": '0102', "description": "teste 2"}
-  ];
-
-  // final a = SpecieModel.fromJson(especies.first);
-  // print(a);
 }
