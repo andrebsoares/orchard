@@ -3,5 +3,4 @@ import 'package:orchard/app_widget.dart';
 
 void main() {
   runApp(const AppWidget());
-
 }
