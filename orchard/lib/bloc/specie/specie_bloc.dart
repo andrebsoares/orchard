@@ -8,8 +8,8 @@ class SpecieBloc extends Bloc<SpecieEvent, SpecieState> {
   final ISpecieRepository specieRepository;
 
   SpecieBloc(this.specieRepository) : super(EmptyState()) {
-    on<GetAll>(_get);
-    on<Create>(_create);
+    on<GetAllSpecies>(_get);
+    on<CreateSpecie>(_create);
   }
 
   Future<void> _get(SpecieEvent event, Emitter emit) async {
@@ -23,7 +23,7 @@ class SpecieBloc extends Bloc<SpecieEvent, SpecieState> {
     });
   }
 
-  Future<void> _create(Create event, Emitter emit) async {
+  Future<void> _create(CreateSpecie event, Emitter emit) async {
     await specieRepository.create(event.specie);
   }
 }

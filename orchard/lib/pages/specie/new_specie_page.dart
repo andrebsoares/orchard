@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:orchard/bloc/specie/specie_bloc.dart';
+import 'package:orchard/bloc/specie/specie_event.dart';
+import 'package:orchard/models/specie_model.dart';
 import 'package:orchard/widgets/default_input_field_widget.dart';
+import 'package:provider/provider.dart';
 
 class NewSpeciePage extends StatefulWidget {
   static const id = 'new-specie';
@@ -39,7 +43,11 @@ class _NewSpeciePageState extends State<NewSpeciePage> {
               SizedBox(
                 width: double.maxFinite,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    final specieModel = SpecieModel(id: '010101', description: descriptionController.text);
+                    context.read<SpecieBloc>().add(CreateSpecie(specieModel));
+                    Navigator.pop(context);
+                  },
                   child: const Text('Save'),
                 ),
               ),

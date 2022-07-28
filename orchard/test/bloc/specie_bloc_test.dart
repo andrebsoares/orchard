@@ -25,7 +25,7 @@ void main() {
     return specieBloc;
   }),
       act: ((specieBloc) => specieBloc.add(
-            GetAll(),
+            GetAllSpecies(),
           )),
       expect: (() => [isA<LoadingState>(), isA<LoadedState>()]));
 
@@ -36,7 +36,7 @@ void main() {
           .thenAnswer((invocation) => Future.value());
       return specieBloc;
     }),
-    act: ((specieBloc) => specieBloc.add(Create(TestUtil.getSpecie()))),
+    act: ((specieBloc) => specieBloc.add(CreateSpecie(TestUtil.getSpecie()))),
     expect: (() => []),
   );
 }

@@ -2,10 +2,10 @@ import 'package:orchard/models/specie_model.dart';
 
 abstract class SpecieEvent {}
 
-class GetAll implements SpecieEvent {}
+class GetAllSpecies implements SpecieEvent {}
 
-class Create implements SpecieEvent {
+class CreateSpecie implements SpecieEvent {
   final SpecieModel specie;
 
-  Create(this.specie);
+  CreateSpecie(this.specie);
 }

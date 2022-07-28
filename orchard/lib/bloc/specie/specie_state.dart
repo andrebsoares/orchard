@@ -1,13 +1,15 @@
+import 'package:orchard/models/specie_model.dart';
+
 abstract class SpecieState {}
 
 class EmptyState implements SpecieState {}
 
 class LoadingState implements SpecieState {}
 
-class LoadedState<T> implements SpecieState {
-  final List<T> lists;
+class LoadedState implements SpecieState {
+  final List<SpecieModel> species;
 
-  LoadedState(this.lists);
+  LoadedState(this.species);
 }
 
 class ExceptionState implements SpecieState {
