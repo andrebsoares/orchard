@@ -2,6 +2,7 @@ import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:orchard/models/specie_model.dart';
 import 'package:orchard/repositories/specie_repository.dart';
+import 'package:uuid/uuid.dart';
 
 List<SpecieModel> tSpecieList = [
   const SpecieModel(id: "1", description: "Laranjeira"),
@@ -16,10 +17,12 @@ final specieJson = [
 void main() {
   late SpecieRepository specieRepository;
   late FakeFirebaseFirestore firestore;
+  late Uuid uuid;
 
   setUp(() {
     firestore = FakeFirebaseFirestore();
-    specieRepository = SpecieRepository(firestore);
+    uuid = const Uuid();
+    specieRepository = SpecieRepository(firestore, uuid);
   });
 
   test('specie repository getAll', () async {
